@@ -1,0 +1,20 @@
+[
+    {
+        "nome": "Mercado",
+        "orcamento": 1000,
+        "disponivel": 700,
+        "gasto": 300
+    },
+    {
+        "nome": "Casa",
+        "orcamento": 124,
+        "disponivel": 7030,
+        "gasto": 3005
+    },
+    {
+        "nome": "Combustivel",
+        "orcamento": 1324,
+        "disponivel": 30,
+        "gasto": 5
+    }
+]
