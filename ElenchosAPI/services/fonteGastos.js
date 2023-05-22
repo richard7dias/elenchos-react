@@ -1,21 +1,21 @@
 const fs = require('fs');
-const bancoDados = "gastos.json";
+const bancoDados = "fonteGastos.json";
 const gastos = JSON.parse(fs.readFileSync(bancoDados));
 
-function getTodosGastos() {
+function getTodasFontesGastos() {
     return gastos;
 }
 
-function getGastoPorDescricao(descricao) {
+function getFonteGastoPorDescricao(descricao) {
     return gastos.filter(gasto => gasto.descricao === descricao)[0];
 }
 
-function insereGasto(novaoGasto) {
+function insereFonteGasto(novaoGasto) {
     const novaListaDeGastos = [...gastos, novaoGasto];
     fs.writeFileSync(bancoDados, JSON.stringify(novaListaDeGastos));
 }
 
-function modificaGasto(modificacoes, descricao) {
+function modificaFonteGasto(modificacoes, descricao) {
     let gastosAtuais = gastos
     const indiceModificado = gastosAtuais.findIndex(gasto => gasto.descricao === descricao)
     const conteudoMudado = { ...gastosAtuais[indiceModificado], ...modificacoes }
@@ -23,7 +23,7 @@ function modificaGasto(modificacoes, descricao) {
     fs.writeFileSync(bancoDados, JSON.stringify(gastosAtuais))
 }
 
-function excluiGasto(descricao) {
+function excluiFonteGasto(descricao) {
     let gastosAtuais = gastos
     const index = gastosAtuais.findIndex(gasto => gasto.descricao === descricao)
     gastosAtuais.splice(index, 1)
@@ -31,9 +31,9 @@ function excluiGasto(descricao) {
 }
 
 module.exports = {
-    getTodosGastos,
-    getGastoPorDescricao,
-    insereGasto,
-    modificaGasto,
-    excluiGasto
+    getTodasFontesGastos,
+    getFonteGastoPorDescricao,
+    insereFonteGasto,
+    modificaFonteGasto,
+    excluiFonteGasto
 }

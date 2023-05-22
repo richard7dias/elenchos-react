@@ -1,17 +1,17 @@
-const { getTodosGastos, getGastoPorDescricao, insereGasto, modificaGasto, excluiGasto } = require('../services/gastos');
+const { getTodasFontesGastos, getFonteGastoPorDescricao, insereFonteGasto, modificaFonteGasto, excluiFonteGasto } = require('../services/fonteGastos');
 
-function getGastos(req, res) {
+function getFonteGastos(req, res) {
     try {
-        res.send(getTodosGastos());
+        res.send(getTodasFontesGastos());
     } catch (error) {
         res.status(500);
         res.send(error.message);
     }
 }
 
-function getGasto(req, res) {
+function getFonteGasto(req, res) {
     try {
-        const gastoExiste = getGastoPorDescricao(req.params.descricao);
+        const gastoExiste = getFonteGastoPorDescricao(req.params.descricao);
 
         if (gastoExiste) {
             res.send(gastoExiste);
@@ -25,13 +25,13 @@ function getGasto(req, res) {
     }
 }
 
-function postGasto(req, res) {
+function postFonteGasto(req, res) {
     try {
-        if (getGastoPorDescricao(req.body.descricao)) {
+        if (getFonteGastoPorDescricao(req.body.descricao)) {
             res.status(422)
             res.send("Fonte de gasto já existe.");
         } else if (req.body.descricao && req.body.valorGasto) {
-            insereGasto(req.body);
+            insereFonteGasto(req.body);
             res.status(201);
             res.send("Fonte de gasto adicionado com sucesso!");
         } else {
@@ -45,14 +45,14 @@ function postGasto(req, res) {
     }
 }
 
-function patchGasto(req, res) {
+function patchFonteGasto(req, res) {
     try {
         const descricao = req.params.descricao;
         const body = req.body;
-        const descricaoExistente = getGastoPorDescricao(descricao).descricao;
+        const descricaoExistente = getFonteGastoPorDescricao(descricao).descricao;
 
         if (descricaoExistente === descricao) {
-            modificaGasto(body, descricao);
+            modificaFonteGasto(body, descricao);
             res.send("Item modificado com sucesso!");
         }
         else {
@@ -66,10 +66,10 @@ function patchGasto(req, res) {
     }
 }
 
-function deleteGasto(req, res) {
+function deleteFonteGasto(req, res) {
     try {
-        if (getGastoPorDescricao(req.params.descricao)) {
-            excluiGasto(req.params.descricao);
+        if (getFonteGastoPorDescricao(req.params.descricao)) {
+            excluiFonteGasto(req.params.descricao);
             res.send("Fonte de gasto excluído com sucesso!");
         } else {
             res.status(422);
@@ -83,9 +83,9 @@ function deleteGasto(req, res) {
 }
 
 module.exports = {
-    getGastos,
-    getGasto,
-    postGasto,
-    patchGasto,
-    deleteGasto
+    getFonteGastos,
+    getFonteGasto,
+    postFonteGasto,
+    patchFonteGasto,
+    deleteFonteGasto
 }

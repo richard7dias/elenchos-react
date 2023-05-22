@@ -1,8 +1,1 @@
-[
-    {
-        "categoria": "",
-        "data": "",
-        "descricao": "",
-        "valor": ""
-    }
-]
+[{"id":"1","categoria":"Combustível","data":"ontem","descricao":"Posto","valor":100},{"id":"2","categoria":"Mercado","data":"hoje","descricao":"Teste","valor":200},{"id":"3","categoria":"Mercado","data":"Ja foi","descricao":"Mudado","valor":23400}]

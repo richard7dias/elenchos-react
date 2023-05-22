@@ -1,6 +1,1 @@
-[
-    {
-        "conta": "",
-        "valorSaldo": ""
-    }
-]
+[{"conta":"Nubank","valorSaldo":200},{"conta":"Santander","valorSaldo":340}]
