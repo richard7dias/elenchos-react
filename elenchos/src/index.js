@@ -4,25 +4,32 @@ import Home from './rotes/Home';
 import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import MesAtual from './rotes/MesAtual';
+import Reembolso from './rotes/Reembolso';
+import Relatorios from './rotes/Relatorios';
+import FluxoDeCaixa from './rotes/FluxoDeCaixa';
 
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
   li {
     list-style: none;
   }
+
+  ul {
+    margin: 0;
+  }
+
+  th {
+    background-color: #387876;
+    color: white;
+  }
+
+
 `
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -30,14 +37,17 @@ root.render(
   <React.StrictMode>
     <GlobalStyle />
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/mes-atual' element={<MesAtual />} />
+        <Route path='/reembolso' element={<Reembolso />} />
+        <Route path='/relatorios' element={<Relatorios />} />
+        <Route path='/fluxo-de-caixa' element={<FluxoDeCaixa />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

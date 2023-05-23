@@ -1,21 +1,33 @@
-function App() {
+import styled from 'styled-components';
+import TituloPrincipal from '../components/TituloPrincipal';
+import TabelaSaldos from '../components/TabelaSaldos';
+import TabelaFonteGastos from '../components/TabelaFonteGastos';
+import CaixaHome from '../components/CaixaHome';
+
+const AppContainer = styled.div`
+  width: 100vw;
+  height: 92.1vh;
+  margin-top: 50px;
+`
+
+const ContainerTabelas = styled.div`
+  max-width: 800px;
+  display: flex;
+  margin: 30px auto;
+`
+
+function Home() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContainer>
+      <TituloPrincipal>Entradas x saídas e caixa atual</TituloPrincipal>
+
+      <ContainerTabelas>
+        <TabelaSaldos />
+        <CaixaHome />
+        <TabelaFonteGastos />
+      </ContainerTabelas>
+    </AppContainer>
   );
 }
 
-export default App;
+export default Home;

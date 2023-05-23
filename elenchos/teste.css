@@ -1,0 +1,23 @@
+.paleta {
+    color: #387876;
+    color: #99958f;
+    color: #3C658F;
+    color: #594b3b;
+    color: #60CCC8;
+    color: #903B33;
+}
+
+
+.teste {
+    background-color: #903B33;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 200px;
+    height: 20px;
+    transition: 3s;
+    right: 9;
+    text-align: center;
+    margin-top: 100px;
+    border-radius: 20px;
+    border-collapse: collapse;
+    padding-left: 10px;
+}
