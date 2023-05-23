@@ -3,7 +3,7 @@ import { getSaldos } from '../../services/saldos';
 import styled from 'styled-components';
 import Botao from '../Botao';
 import SomaSaldos from '../CaixaHome/SomaSaldos';
-import InserirSaldoOuGasto from '../InserirSaldoOuGasto';
+import InserirSaldoOuGasto from '../InserirSaldo';
 
 const Tabela = styled.table`
     margin: auto;

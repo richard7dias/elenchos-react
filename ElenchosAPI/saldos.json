@@ -1,10 +1,1 @@
-[
-    {
-        "conta": "Nubank",
-        "valorSaldo": 200.00
-    },
-    {
-        "conta": "Santander",
-        "valorSaldo": 3000
-    }
-]
+[{"conta":"Nubank","valorSaldo":200},{"conta":"Santander","valorSaldo":3000},{"conta":"Teste","valorSaldo":1},{"conta":"Outr","valorSaldo":2},{"conta":"teste","valorSaldo":2}]

@@ -3,6 +3,7 @@ import TituloPrincipal from '../components/TituloPrincipal';
 import TabelaSaldos from '../components/TabelaSaldos';
 import TabelaFonteGastos from '../components/TabelaFonteGastos';
 import CaixaHome from '../components/CaixaHome';
+import AdicionaSaldoGasto from '../components/AdicionaSaldo';
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -20,7 +21,7 @@ function Home() {
   return (
     <AppContainer>
       <TituloPrincipal>Entradas x saídas e caixa atual</TituloPrincipal>
-
+      <AdicionaSaldoGasto />
       <ContainerTabelas>
         <TabelaSaldos />
         <CaixaHome />

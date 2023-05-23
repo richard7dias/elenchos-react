@@ -7,8 +7,8 @@ async function getSaldos() {
     return response.data
 }
 
-async function postSaldo(conta) {
-    await saldosAPI.post(`/${conta}`)
+async function postSaldo(novoSaldo) {
+    await saldosAPI.post('/', novoSaldo)
 }
 
 async function deleteSaldo(conta) {
