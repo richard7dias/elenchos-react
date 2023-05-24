@@ -3,7 +3,6 @@ import { getSaldos } from '../../services/saldos';
 import styled from 'styled-components';
 import Botao from '../Botao';
 import SomaSaldos from '../CaixaHome/SomaSaldos';
-import InserirSaldoOuGasto from '../InserirSaldo';
 
 const Tabela = styled.table`
     margin: auto;
@@ -46,7 +45,6 @@ const Dinheiro = styled.td`
 
 function TabelaSaldos() {
     const [saldos, setSaldos] = useState([]);
-    const [janelaInserir, setJanelaInserir] = useState("");
 
     async function fetchSaldos() {
         const saldosDaAPI = await getSaldos();
@@ -60,7 +58,7 @@ function TabelaSaldos() {
 
     return (
         <Tabela>
-            <caption><Botao onClick={() => setJanelaInserir(<InserirSaldoOuGasto />)}>+</Botao> CONTAS</caption>
+            <caption>CONTAS</caption>
             <tr>
                 <ColDescricao>Descrição</ColDescricao>
                 <ColValor>Valor (R$)</ColValor>
@@ -73,7 +71,6 @@ function TabelaSaldos() {
                     </tr>
                 ))
             }
-            {janelaInserir}
             <tfoot>
                 <td>Total</td>
                 <Dinheiro>{SomaSaldos()}</Dinheiro>

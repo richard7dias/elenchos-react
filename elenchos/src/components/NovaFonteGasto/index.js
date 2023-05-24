@@ -4,9 +4,14 @@ import styled from 'styled-components';
 import './estiloModal.css';
 import TituloSecundario from '../TituloSecundario';
 import Botao from '../Botao';
+import BotaoMenu from '../BotaoMenu';
 
 const ModalContainer = styled.div`
     position: relative;
+`
+
+const BarraSuperior = styled.div`
+    border-bottom: 2px solid #99958f;
 `
 
 const ContainerTexto = styled.div`
@@ -54,9 +59,7 @@ const BtnSubmit = styled.button`
     }
 `
 
-
-
-function AdicionaSaldo() {
+function NovaFonteGasto() {
     const [estaAberta, setAbrir] = useState(false);
 
     function abrirModal() {
@@ -75,14 +78,14 @@ function AdicionaSaldo() {
                     onRequestClose={fecharModal}
                     className="modal"
                 >
-                    <div>
+                    <BarraSuperior>
                         <Botao onClick={fecharModal}>X</Botao>
                         <ContainerTexto>
-                            <TituloSecundario>NOVA CONTA</TituloSecundario>
+                            <TituloSecundario>NOVA FONTE DE GASTO</TituloSecundario>
                         </ContainerTexto>
-                    </div>
+                    </BarraSuperior>
                     <Formulario onSubmit={fecharModal}>
-                        <ContainerLabel><label>Nome da conta:</label></ContainerLabel>
+                        <ContainerLabel><label>Descrição da fonte de gasto:</label></ContainerLabel>
                         <Input type="text"></Input>
                         <ContainerLabel><label>Valor:</label></ContainerLabel>
                         <Input type="number"></Input>
@@ -90,9 +93,9 @@ function AdicionaSaldo() {
                     </Formulario>
                 </Modal>
             </ModalContainer>
-            <Botao onClick={abrirModal}>NOVA CONTA</Botao>
+            <BotaoMenu onClick={abrirModal}>NOVA FONTE DE GASTO</BotaoMenu>
         </div>
     )
 }
 
-export default AdicionaSaldo;
+export default NovaFonteGasto;

@@ -3,7 +3,8 @@ import TituloPrincipal from '../components/TituloPrincipal';
 import TabelaSaldos from '../components/TabelaSaldos';
 import TabelaFonteGastos from '../components/TabelaFonteGastos';
 import CaixaHome from '../components/CaixaHome';
-import AdicionaSaldoGasto from '../components/AdicionaSaldo';
+import NovaConta from '../components/NovaConta';
+import NovaFonteGasto from '../components/NovaFonteGasto';
 
 const AppContainer = styled.div`
   width: 100vw;
@@ -17,11 +18,19 @@ const ContainerTabelas = styled.div`
   margin: 30px auto;
 `
 
+const ContainerBotoes = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
 function Home() {
   return (
     <AppContainer>
       <TituloPrincipal>Entradas x saídas e caixa atual</TituloPrincipal>
-      <AdicionaSaldoGasto />
+      <ContainerBotoes>
+        <NovaConta />
+        <NovaFonteGasto />
+      </ContainerBotoes>
       <ContainerTabelas>
         <TabelaSaldos />
         <CaixaHome />
