@@ -5,6 +5,7 @@ import './estiloModal.css';
 import TituloSecundario from '../TituloSecundario';
 import Botao from '../Botao';
 import BotaoMenu from '../BotaoMenu';
+import { postFonteGasto } from '../../services/fonteGastos';
 
 const ModalContainer = styled.div`
     position: relative;
@@ -61,6 +62,8 @@ const BtnSubmit = styled.button`
 
 function NovaFonteGasto() {
     const [estaAberta, setAbrir] = useState(false);
+    const [descricao, setDescricao] = useState("");
+    const [valor, setValor] = useState("");
 
     function abrirModal() {
         setAbrir(true)
@@ -68,6 +71,23 @@ function NovaFonteGasto() {
 
     function fecharModal() {
         setAbrir(false)
+    }
+
+    async function inserFonteGasto(fonteGasto) {
+        await postFonteGasto(fonteGasto);
+        alert(`Fonte de gasto ${fonteGasto.descricao}, inserida com sucesso!`);
+    }
+
+    function SubmitFormulario() {
+        if (descricao && valor) {
+            const fonteGasto = {
+                "descricao": descricao,
+                "valorGasto": parseFloat(valor)
+            };
+            inserFonteGasto(fonteGasto);
+        } else {
+            alert("Preencha todos os campos!");
+        }
     }
 
     return (
@@ -86,10 +106,14 @@ function NovaFonteGasto() {
                     </BarraSuperior>
                     <Formulario onSubmit={fecharModal}>
                         <ContainerLabel><label>Descrição da fonte de gasto:</label></ContainerLabel>
-                        <Input type="text"></Input>
+                        <Input type="text" onChange={evento => {
+                            setDescricao(evento.target.value);
+                        }} />
                         <ContainerLabel><label>Valor:</label></ContainerLabel>
-                        <Input type="number"></Input>
-                        <BtnSubmit type="submit">Adicionar</BtnSubmit>
+                        <Input type="number" onChange={evento => {
+                            setValor(evento.target.value);
+                        }} />
+                        <BtnSubmit type="submit" onClick={SubmitFormulario}>Adicionar</BtnSubmit>
                     </Formulario>
                 </Modal>
             </ModalContainer>

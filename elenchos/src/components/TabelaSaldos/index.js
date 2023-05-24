@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getSaldos } from '../../services/saldos';
 import styled from 'styled-components';
-import Botao from '../Botao';
 import SomaSaldos from '../CaixaHome/SomaSaldos';
+import EditarConta from '../EditarConta';
 
 const Tabela = styled.table`
     margin: auto;
@@ -37,6 +37,7 @@ const ColValor = styled.th`
 const Descricao = styled.td`
     background-color: #99958f;
     color: white;
+    display: flex;
 `
 
 const Dinheiro = styled.td`
@@ -65,8 +66,14 @@ function TabelaSaldos() {
             </tr>
             {
                 saldos.map(saldo => (
-                    <tr>
-                        <Descricao><Botao>•</Botao> {saldo.conta}</Descricao>
+                    < tr >
+                        <Descricao>
+                            <EditarConta
+                                contaProp={saldo.conta}
+                                valorProp={saldo.valorSaldo}
+                            />
+                            {saldo.conta}
+                        </Descricao>
                         <Dinheiro>{saldo.valorSaldo}</Dinheiro>
                     </tr>
                 ))

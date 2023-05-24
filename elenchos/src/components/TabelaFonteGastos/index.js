@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getFonteGastos } from '../../services/fonteGastos';
 import styled from 'styled-components';
-import Botao from '../Botao';
 import SomaFonteGastos from '../CaixaHome/SomaFonteGastos';
+import EditarFonteGasto from '../EditarFonteGasto';
 
 const Tabela = styled.table`
     margin: auto;
@@ -37,6 +37,7 @@ const ColValor = styled.th`
 const Descricao = styled.td`
     background-color: #99958f;
     color: white;
+    display: flex;
 `
 
 const Dinheiro = styled.td`
@@ -57,7 +58,7 @@ function TabelaFonteGastos() {
 
     return (
         <Tabela>
-            <caption><Botao>+</Botao> GASTOS</caption>
+            <caption>GASTOS</caption>
             <tr>
                 <ColDescricao>Descrição</ColDescricao>
                 <ColValor>Valor (R$)</ColValor>
@@ -65,7 +66,13 @@ function TabelaFonteGastos() {
             {
                 fonteGastos.map(fonteGasto => (
                     <tr>
-                        <Descricao><Botao>•</Botao> {fonteGasto.descricao}</Descricao>
+                        <Descricao>
+                            <EditarFonteGasto
+                                descricaoProp={fonteGasto.descricao}
+                                valorProp={fonteGasto.valorGasto}
+                            />
+                            {fonteGasto.descricao}
+                        </Descricao>
                         <Dinheiro>{fonteGasto.valorGasto}</Dinheiro>
                     </tr>
                 ))

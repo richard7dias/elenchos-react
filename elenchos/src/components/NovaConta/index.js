@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import './estiloModal.css';
@@ -73,18 +73,10 @@ function NovaConta() {
         setAbrir(false)
     }
 
-    async function inserSaldo(novoSaldo) {
-        await postSaldo(novoSaldo);
-        alert(`Conta ${novoSaldo.conta} inserida com sucesso!`);
+    async function inserSaldo(saldo) {
+        await postSaldo(saldo);
+        alert(`Conta ${saldo.conta} inserida com sucesso!`);
     }
-
-    const handleConta = (event) => {
-        setConta(event.target.value);
-    };
-
-    const handleValor = (event) => {
-        setValor(event.target.value);
-    };
 
     function SubmitFormulario() {
         if (conta && valor) {
@@ -97,33 +89,37 @@ function NovaConta() {
             alert("Preencha todos os campos!");
         }
     }
-}
 
-return (
-    <div>
-        <ModalContainer>
-            <Modal
-                isOpen={estaAberta}
-                onRequestClose={fecharModal}
-                className="modal"
-            >
-                <BarraSuperior>
-                    <Botao onClick={fecharModal}>X</Botao>
-                    <ContainerTexto>
-                        <TituloSecundario>NOVA CONTA</TituloSecundario>
-                    </ContainerTexto>
-                </BarraSuperior>
-                <Formulario onSubmit={SubmitFormulario()}>
-                    <ContainerLabel><label>Nome da conta:</label></ContainerLabel>
-                    <Input type="text" onChange={handleConta} />
-                    <ContainerLabel><label>Valor:</label></ContainerLabel>
-                    <Input type="number" onChange={handleValor} />
-                    <BtnSubmit type="submit">Adicionar</BtnSubmit>
-                </Formulario>
-            </Modal>
-        </ModalContainer>
-        <BotaoMenu onClick={abrirModal}>NOVA CONTA</BotaoMenu>
-    </div>
-)
+    return (
+        <div>
+            <ModalContainer>
+                <Modal
+                    isOpen={estaAberta}
+                    onRequestClose={fecharModal}
+                    className="modal"
+                >
+                    <BarraSuperior>
+                        <Botao onClick={fecharModal}>X</Botao>
+                        <ContainerTexto>
+                            <TituloSecundario>NOVA CONTA</TituloSecundario>
+                        </ContainerTexto>
+                    </BarraSuperior>
+                    <Formulario>
+                        <ContainerLabel><label>Nome da conta:</label></ContainerLabel>
+                        <Input type="text" onChange={evento => {
+                            setConta(evento.target.value);
+                        }} />
+                        <ContainerLabel><label>Valor:</label></ContainerLabel>
+                        <Input type="number" onChange={evento => {
+                            setValor(evento.target.value);
+                        }} />
+                        <BtnSubmit type="submit" onClick={SubmitFormulario}>Adicionar</BtnSubmit>
+                    </Formulario>
+                </Modal>
+            </ModalContainer>
+            <BotaoMenu onClick={abrirModal}>NOVA CONTA</BotaoMenu>
+        </div>
+    )
+}
 
 export default NovaConta;
