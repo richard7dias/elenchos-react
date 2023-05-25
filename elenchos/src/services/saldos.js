@@ -7,6 +7,11 @@ async function getSaldos() {
     return response.data;
 }
 
+async function getSaldo(conta) {
+    const response = await saldosAPI.get(`/${conta}`);
+    return response.data;
+}
+
 async function postSaldo(novoSaldo) {
     await saldosAPI.post('/', novoSaldo);
 }
@@ -21,6 +26,7 @@ async function deleteSaldo(conta) {
 
 export {
     getSaldos,
+    getSaldo,
     postSaldo,
     patchSaldo,
     deleteSaldo

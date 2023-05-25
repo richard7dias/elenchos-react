@@ -27,7 +27,7 @@ const Opcao = styled.li`
     }
 `
 
-const textoOpcoes = ['HOME', 'MÊS ATUAL', 'REEMBOLSO', 'RELATÓRIOS', 'FLUXO DE CAIXA'];
+const textoOpcoes = ['HOME', 'ORÇAMENTO', 'LANÇAMENTOS', 'RELATÓRIOS', 'FLUXO DE CAIXA'];
 
 function OpcoesHeader() {
     return (

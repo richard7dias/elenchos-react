@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Home from './rotes/Home';
 import reportWebVitals from './reportWebVitals';
 import { createGlobalStyle } from 'styled-components';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import MesAtual from './rotes/MesAtual';
-import Reembolso from './rotes/Reembolso';
+import Home from './rotes/Home';
+import Orcamento from './rotes/Orcamento';
+import Lancamentos from './rotes/Lancamentos';
 import Relatorios from './rotes/Relatorios';
 import FluxoDeCaixa from './rotes/FluxoDeCaixa';
 
@@ -42,8 +42,8 @@ root.render(
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Home />} />
-        <Route path='/mes-atual' element={<MesAtual />} />
-        <Route path='/reembolso' element={<Reembolso />} />
+        <Route path='/orcamento' element={<Orcamento />} />
+        <Route path='/lancamentos' element={<Lancamentos />} />
         <Route path='/relatorios' element={<Relatorios />} />
         <Route path='/fluxo-de-caixa' element={<FluxoDeCaixa />} />
       </Routes>

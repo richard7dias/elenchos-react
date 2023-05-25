@@ -7,6 +7,11 @@ async function getFonteGastos() {
     return response.data;
 }
 
+async function getFonteGasto(descricao) {
+    const response = await fonteGastosAPI.get(`/${descricao}`);
+    return response.data;
+}
+
 async function postFonteGasto(novaFonteGasto) {
     await fonteGastosAPI.post('/', novaFonteGasto);
 }
@@ -21,6 +26,7 @@ async function deleteFonteGasto(descricao) {
 
 export {
     getFonteGastos,
+    getFonteGasto,
     postFonteGasto,
     patchFonteGasto,
     deleteFonteGasto
