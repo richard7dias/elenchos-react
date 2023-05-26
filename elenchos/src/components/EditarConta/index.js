@@ -28,8 +28,9 @@ function EditarConta({ contaProp, valorProp }) {
     }
 
     async function deletaSaldo() {
-        await deleteSaldo(criaSaldo().conta);
-        alert(`Conta ${conta} apagada com sucesso!`);
+        if (window.confirm(`Deseja apagar ${conta}?`)) {
+            await deleteSaldo(criaSaldo().conta);
+        }
     }
 
     return (

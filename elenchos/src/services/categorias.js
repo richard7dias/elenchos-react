@@ -16,8 +16,8 @@ async function postCategoria(novaCategoria) {
     await categoriasAPI.post('/', novaCategoria);
 }
 
-async function patchCategoria(nome, categoria) {
-    await categoriasAPI.patch(`/${nome}`, categoria);
+async function patchCategoria(nome, body) {
+    await categoriasAPI.patch(`/${nome}`, body);
 }
 
 async function deleteCategoria(nome) {

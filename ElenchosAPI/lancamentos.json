@@ -1,1 +1,72 @@
-[{"id":1,"data":"2023-05-23","descricao":"teste","categoria":"Itens Pessoais","valor":1},{"id":2,"data":"2023-05-25","descricao":"teste","categoria":"Itens Pessoais","valor":200},{"id":3,"data":"2023-05-25","descricao":"vai","categoria":"Mercado","valor":23},{"id":4,"data":"2023-05-25","descricao":"ultimo de cima","categoria":"Casa","valor":100},{"id":5,"data":"25/05/2023","descricao":"teste data","categoria":"Casa","valor":100},{"id":6,"data":"25/05/2023","descricao":"Falta fazer agora o componente editar","categoria":"Combustível","valor":100}]
+[
+    {
+        "id": "2",
+        "data": "2023-05-25",
+        "descricao": "teste",
+        "categoria": "Itens Pessoais",
+        "valor": 200
+    },
+    {
+        "id": "4",
+        "data": "2023-04-25",
+        "descricao": "ultimo de cima",
+        "categoria": "Casa",
+        "valor": 100
+    },
+    {
+        "id": "5",
+        "data": "2023-05-23",
+        "descricao": "teste data",
+        "categoria": "Casa",
+        "valor": 100
+    },
+    {
+        "id": "6",
+        "data": "2023-05-25",
+        "descricao": "Falta",
+        "categoria": "Combustível",
+        "valor": 100
+    },
+    {
+        "id": "7",
+        "data": "2022-05-25",
+        "descricao": "Calopsita",
+        "categoria": "Combustível",
+        "valor": 200
+    },
+    {
+        "id": "8",
+        "data": "2022-05-26",
+        "descricao": "data ajustada",
+        "categoria": "Restaurante",
+        "valor": 1000
+    },
+    {
+        "id": "9",
+        "data": "2022-05-25",
+        "descricao": "id corrigido",
+        "categoria": "Itens Pessoais",
+        "valor": 233
+    },
+    {
+        "id": "10",
+        "data": "2023-05-26",
+        "descricao": "Almoço",
+        "categoria": "Restaurante",
+        "valor": 100
+    },
+    {
+        "id": "11",
+        "data": "2023-05-26",
+        "descricao": "await",
+        "categoria": "Casa",
+        "valor": 200
+    },
+    {
+        "id": "12",
+        "data": "2023-05-26",
+        "descricao": "teste ",
+        "categoria": "Mercado",
+        "valor": 100
+    }
+]

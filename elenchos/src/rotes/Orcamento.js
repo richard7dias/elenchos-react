@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import TituloPrincipal from '../components/TituloPrincipal';
-import mesAtual from '../components/DataAtual';
+import nomeMesAtual from '../components/Datas/mesAtual';
 import NovaCategoria from '../components/NovaCategoria';
 import TabelaCategorias from '../components/TabelaCategorias';
 
@@ -19,7 +19,7 @@ function Orcamento() {
 
   return (
     <AppContainer>
-      <TituloPrincipal>Orçamento de {mesAtual()}</TituloPrincipal>
+      <TituloPrincipal>Orçamento de {nomeMesAtual()}</TituloPrincipal>
       <ContainerBotoes>
         <NovaCategoria />
       </ContainerBotoes>

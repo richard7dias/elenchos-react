@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import EditarConta from '../EditarConta';
 import TituloSecundario from '../TituloSecundario';
-import mesAtual from '../DataAtual';
+import nomeMesAtual, { anoAtual, mesAtual } from '../Datas/mesAtual';
 import { getLancamentos } from '../../services/lancamentos';
+import EditarLancamento from '../EditarLancamento';
 
 const Tabela = styled.table`
     margin: auto;
@@ -36,7 +36,7 @@ const ColData = styled.th`
 `
 
 const ColDescricao = styled.th`
-    width: 300px;
+    width: 335px;
     text-align: start;
 `
 
@@ -50,6 +50,11 @@ const ColValor = styled.th`
 
 const LinhaHeader = styled.tr`
     border-bottom: 3px solid #99958f;
+`
+
+const ContainerEditar = styled.div`
+    text-align: center;
+    padding-top: 4px;
 `
 
 const Linha = styled.tr`
@@ -80,26 +85,34 @@ function TabelaLancamentos() {
         fetchLancamentos()
     }, []);
 
+    const filtrados = lancamentos
+        .filter(lancamento =>
+            lancamento.data.substring(0, 4) == anoAtual.toString()
+            && lancamento.data.substring(5, 7) == mesAtual
+        );
 
     return (
         <div>
-            <TituloSecundario>LANÇAMENTOS DE {mesAtual().toUpperCase()}</TituloSecundario>
+            <TituloSecundario>LANÇAMENTOS DE {nomeMesAtual().toUpperCase()}</TituloSecundario>
             <Tabela>
                 <LinhaHeader>
-                    <ColEditar />
+                    <ColEditar>Editar</ColEditar>
                     <ColData>Data</ColData>
                     <ColDescricao>Descrição</ColDescricao>
                     <ColCategoria>Categoria</ColCategoria>
                     <ColValor>Valor (R$)</ColValor>
                 </LinhaHeader>
                 {
-                    lancamentos.map(lancamento => (
+                    filtrados.map(lancamento => (
                         < Linha >
-                            <EditarConta
-                                contaProp={lancamento.id}
-                                valorProp={lancamento.valor}
-                            />
-                            <DadoLinha>{lancamento.data}</DadoLinha>
+                            <ContainerEditar>
+                                <EditarLancamento lancamento={lancamento} />
+                            </ContainerEditar>
+                            <DadoLinha>
+                                {
+                                    lancamento.data.split('-').reverse().join('/')
+                                }
+                            </DadoLinha>
                             <DadoDescricao>{lancamento.descricao}</DadoDescricao>
                             <DadoLinha>{lancamento.categoria}</DadoLinha>
                             <Dinheiro>{lancamento.valor}</Dinheiro>

@@ -28,8 +28,9 @@ function EditarCategoria({ nomeProp, orcamentoProp }) {
     }
 
     async function deletaCategoria() {
-        await deleteCategoria(criaCategoria().nome);
-        alert(`Categoria ${nome} apagada com sucesso!`);
+        if (window.confirm(`Deseja apagar ${nome}?`)) {
+            await deleteCategoria(criaCategoria().nome);
+        }
     }
 
     return (

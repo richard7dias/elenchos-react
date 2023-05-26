@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import TituloPrincipal from '../components/TituloPrincipal';
-import mesAtual from '../components/DataAtual';
 import FormLancar from '../components/FormLancar';
 import TabelaLancamentos from '../components/TabelaLancamentos';
 

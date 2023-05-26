@@ -106,7 +106,7 @@ function FormLancar() {
     }
 
     function submitFormulario() {
-        if (data && categoria && categoria !== "Selecione" && valor) {
+        if (data && categoria && valor) {
             const lancamento = {
                 "id": geraId(),
                 "data": data,
@@ -122,10 +122,10 @@ function FormLancar() {
 
     function geraId() {
         if (lancamentos.at(-1)) {
-            const ultimoLancamento = lancamentos.at(-1);
-            return ultimoLancamento.id + 1;
+            const novoId = parseInt(lancamentos.at(-1).id) + 1;
+            return novoId.toString();
         } else {
-            return 1;
+            return "1";
         }
     }
 
@@ -135,13 +135,7 @@ function FormLancar() {
             <Formulario>
                 <DataContainer>
                     <LabelInput>Data</LabelInput>
-                    <InputForm type='date' onChange={evento => {
-                        setData(evento.target.value
-                            .split('-')
-                            .reverse()
-                            .join('/')
-                        )
-                    }}
+                    <InputForm type='date' onChange={evento => { setData(evento.target.value) }}
                     ></InputForm>
                 </DataContainer>
 
@@ -153,7 +147,7 @@ function FormLancar() {
                 <CategoriaContainer>
                     <LabelInput>Categoria</LabelInput>
                     <SelectCategoria onChange={evento => { setCategoria(evento.target.value) }}>
-                        <option>Selecione</option>
+                        <option hidden="hidden">Selecione</option>
                         {
                             categorias.map(categoria => (
                                 <option>{categoria.nome}</option>

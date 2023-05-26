@@ -1,11 +1,10 @@
-export let dataHoje = new Date()
-export let anoAtual = dataHoje.getFullYear()
+export const dataHoje = new Date()
+export const anoAtual = dataHoje.getFullYear()
+export const mesAtual = dataHoje.getMonth() + 1
 
-function mesAtual() {
-    let dataMes = dataHoje.getMonth() + 1
+function nomeMesAtual() {
     let mes
-
-    switch (dataMes) {
+    switch (mesAtual) {
         case 1:
             mes = 'Janeiro';
             break;
@@ -46,4 +45,4 @@ function mesAtual() {
     return mes;
 }
 
-export default mesAtual;
+export default nomeMesAtual;

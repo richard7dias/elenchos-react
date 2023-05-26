@@ -3,6 +3,7 @@ import { getFonteGastos } from '../../services/fonteGastos';
 import styled from 'styled-components';
 import SomaFonteGastos from '../CaixaHome/SomaFonteGastos';
 import EditarFonteGasto from '../EditarFonteGasto';
+import nomeMesAtual from '../Datas/mesAtual';
 
 const Tabela = styled.table`
     margin: auto;
@@ -63,6 +64,12 @@ function TabelaFonteGastos() {
                 <ColDescricao>Descrição</ColDescricao>
                 <ColValor>Valor (R$)</ColValor>
             </tr>
+            <tr>
+                <Descricao>
+                    Mês Atual - {nomeMesAtual()}
+                </Descricao>
+                <Dinheiro>20</Dinheiro>
+            </tr>
             {
                 fonteGastos.map(fonteGasto => (
                     <tr>
@@ -79,7 +86,7 @@ function TabelaFonteGastos() {
             }
             <tfoot>
                 <td>Total</td>
-                <Dinheiro>{SomaFonteGastos()}</Dinheiro>
+                <Dinheiro><strong>{SomaFonteGastos()}</strong></Dinheiro>
             </tfoot>
         </Tabela>
     )

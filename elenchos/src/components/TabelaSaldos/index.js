@@ -80,7 +80,7 @@ function TabelaSaldos() {
             }
             <tfoot>
                 <td>Total</td>
-                <Dinheiro>{SomaSaldos()}</Dinheiro>
+                <Dinheiro><strong>{SomaSaldos()}</strong></Dinheiro>
             </tfoot>
         </Tabela >
     )

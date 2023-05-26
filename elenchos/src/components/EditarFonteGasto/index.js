@@ -28,8 +28,9 @@ function EditarFonteGasto({ descricaoProp, valorProp }) {
     }
 
     async function deletaFonteGasto() {
-        await deleteFonteGasto(criaFonteGasto().descricao);
-        alert(`Fonte de gastos ${descricao} apagada com sucesso!`);
+        if (window.confirm(`Deseja apagar ${descricao}?`)) {
+            await deleteFonteGasto(criaFonteGasto().descricao);
+        }
     }
 
     return (

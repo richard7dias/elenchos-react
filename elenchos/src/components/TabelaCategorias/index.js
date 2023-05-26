@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { getCategorias } from '../../services/categorias';
 import EditarCategoria from '../EditarCategoria';
+import CalculaGasto from '../CalculaGastoDisponivel/CalculaGasto';
+import CalculaDisponivel from '../CalculaGastoDisponivel/CalculaDisponivel';
+import SomaTotais from './somaTotais';
+
 
 const ContainerTabela = styled.div`
   max-width: 800px;
@@ -39,6 +43,10 @@ const ColValores = styled.th`
     width: 140px;
 `
 
+const LinhaDados = styled.tr`
+    border-bottom: 2px solid #99958f;
+`
+
 const NomeCategoria = styled.td`
     background-color: #99958f;
     color: white;
@@ -61,13 +69,8 @@ function TabelaCategorias() {
         fetchCategorias()
     }, []);
 
-    function somaPropiedade(propiedade) {
-        let soma = 0;
-        categorias.map(categoria => (
-            soma += categoria[propiedade]
-        ));
-        return soma;
-    }
+    CalculaGasto();
+    CalculaDisponivel();
 
     return (
         <ContainerTabela>
@@ -80,7 +83,8 @@ function TabelaCategorias() {
                 </tr>
                 {
                     categorias.map(categoria => (
-                        < tr >
+
+                        < LinhaDados >
                             <NomeCategoria>
                                 <EditarCategoria
                                     nomeProp={categoria.nome}
@@ -91,14 +95,14 @@ function TabelaCategorias() {
                             <Dinheiro>{categoria.orcamento}</Dinheiro>
                             <Dinheiro>{categoria.gasto}</Dinheiro>
                             <Dinheiro>{categoria.disponivel}</Dinheiro>
-                        </tr>
+                        </LinhaDados>
                     ))
                 }
                 <tfoot>
                     <td>Total</td>
-                    <Dinheiro>{somaPropiedade("orcamento")}</Dinheiro>
-                    <Dinheiro>{somaPropiedade("gasto")}</Dinheiro>
-                    <Dinheiro>{somaPropiedade("disponivel")}</Dinheiro>
+                    <Dinheiro><strong>{SomaTotais("orcamento")}</strong></Dinheiro>
+                    <Dinheiro><strong>{SomaTotais("gasto")}</strong></Dinheiro>
+                    <Dinheiro><strong>{SomaTotais("disponivel")}</strong></Dinheiro>
                 </tfoot>
             </Tabela >
         </ContainerTabela>
