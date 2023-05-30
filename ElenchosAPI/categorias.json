@@ -1,1 +1,38 @@
-[{"disponivel":800,"gasto":200,"nome":"Itens Pessoais","orcamento":1000},{"nome":"Casa","orcamento":1000,"gasto":350,"disponivel":650},{"nome":"Combustível","orcamento":200,"gasto":100,"disponivel":100},{"nome":"Restaurante","orcamento":2000,"gasto":210,"disponivel":1790},{"nome":"Mercado","orcamento":700,"gasto":100,"disponivel":600},{"nome":"Teste","orcamento":300,"gasto":100,"disponivel":200}]
+[
+    {
+        "disponivel": 800,
+        "gasto": 200,
+        "nome": "Itens Pessoais",
+        "orcamento": 1000
+    },
+    {
+        "nome": "Casa",
+        "orcamento": 1000,
+        "gasto": 350,
+        "disponivel": 650
+    },
+    {
+        "nome": "Combustível",
+        "orcamento": 200,
+        "gasto": 100,
+        "disponivel": 100
+    },
+    {
+        "nome": "Restaurante",
+        "orcamento": 2000,
+        "gasto": 210,
+        "disponivel": 1790
+    },
+    {
+        "nome": "Mercado",
+        "orcamento": 700,
+        "gasto": 100,
+        "disponivel": 600
+    },
+    {
+        "nome": "Teste",
+        "orcamento": 300,
+        "gasto": 100,
+        "disponivel": 200
+    }
+]
