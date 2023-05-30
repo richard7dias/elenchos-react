@@ -4,9 +4,11 @@ import styled from 'styled-components';
 import SomaFonteGastos from '../CaixaHome/SomaFonteGastos';
 import EditarFonteGasto from '../EditarFonteGasto';
 import nomeMesAtual from '../Datas/mesAtual';
+import SomaTotais from '../TabelaCategorias/SomaTotais';
 
 const Tabela = styled.table`
     margin: auto;
+    margin-top: 0;
     border-collapse: collapse;
     border: 1px solid white;
     font-size: 0.8rem;
@@ -17,7 +19,7 @@ const Tabela = styled.table`
         color: #594b3b;
     }
 
-    td, th {
+    th {
         border: 1px solid white;
         padding: 5px 0;
     }
@@ -39,6 +41,16 @@ const Descricao = styled.td`
     background-color: #99958f;
     color: white;
     display: flex;
+    border: 1px solid white;
+    padding: 5px 0;
+`
+
+const DescricaoMesAtual = styled.td`
+    background-color: #99958f;
+    color: white;
+    display: flex;
+    border: 1px solid white;
+    padding: 5px 0 5px 10px;
 `
 
 const Dinheiro = styled.td`
@@ -65,10 +77,10 @@ function TabelaFonteGastos() {
                 <ColValor>Valor (R$)</ColValor>
             </tr>
             <tr>
-                <Descricao>
+                <DescricaoMesAtual>
                     Mês Atual - {nomeMesAtual()}
-                </Descricao>
-                <Dinheiro>20</Dinheiro>
+                </DescricaoMesAtual>
+                <Dinheiro>{SomaTotais("disponivel")}</Dinheiro>
             </tr>
             {
                 fonteGastos.map(fonteGasto => (

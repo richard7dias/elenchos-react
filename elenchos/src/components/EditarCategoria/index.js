@@ -1,10 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { deleteCategoria, patchCategoria } from '../../services/categorias';
 import ModalEditar from '../ModalEditar';
+import { getLancamentos, patchLancamento } from '../../services/lancamentos';
+import ModalSubstituirCategoria from '../ModalSubstituirCategoria';
 
 function EditarCategoria({ nomeProp, orcamentoProp }) {
     const [nome, setNome] = useState(nomeProp);
     const [orcamento, setOrcamento] = useState(orcamentoProp);
+    const [lancamentos, setLancamentos] = useState([]);
+
+    async function fetchLancamentos() {
+        const lancamentosDaAPI = await getLancamentos();
+        setLancamentos(lancamentosDaAPI);
+    }
+
+    useEffect(() => {
+        fetchLancamentos();
+    }, []);
+
+    async function editaLancamento(id, body) {
+        await patchLancamento(id, body);
+    }
 
     async function editaCategoria(categoria) {
         await patchCategoria(nomeProp, categoria);
@@ -13,10 +29,25 @@ function EditarCategoria({ nomeProp, orcamentoProp }) {
 
     async function submitFormulario() {
         if (nome && orcamento) {
+            if (existeLancamentosCategoria()) {
+                mudarCategoriaLancamentos();
+            }
             await editaCategoria(criaCategoria());
         } else {
             alert("Preencha todos os campos!");
         }
+    }
+
+    function mudarCategoriaLancamentos() {
+        lancamentos.map(lancamento => {
+            if (lancamento.categoria == nomeProp) {
+                editaLancamento(lancamento.id, { "categoria": nome });
+            }
+        });
+    }
+
+    function existeLancamentosCategoria() {
+        return lancamentos.filter(lancamento => lancamento.categoria == nomeProp);
     }
 
     function criaCategoria() {
@@ -27,9 +58,13 @@ function EditarCategoria({ nomeProp, orcamentoProp }) {
         return categoria
     }
 
-    async function deletaCategoria() {
+    //async
+    function deletaCategoria() {
         if (window.confirm(`Deseja apagar ${nome}?`)) {
-            await deleteCategoria(criaCategoria().nome);
+            if (existeLancamentosCategoria()) {
+                ModalSubstituirCategoria();
+            }
+            //await deleteCategoria(criaCategoria().nome);
         }
     }
 

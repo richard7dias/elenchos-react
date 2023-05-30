@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import Logo from '../Logo';
 import OpcoesHeader from '../OpcoesHeader';
-import CalculaCaixa from '../CaixaHome/CalculaCaixa';
+import CalculaCaixa from '../CalculaCaixa';
+
 
 const HeaderContainer = styled.div`
     position: fixed;
@@ -19,7 +20,7 @@ const CaixaAtual = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 100px;
+    width: 110px;
     height: 30px;
     margin: 8px 0 0 50px;
     font-size: 0.8rem;
@@ -35,7 +36,7 @@ function Header() {
             <Logo />
             <OpcoesHeader />
             <CaixaAtual>
-                <p>R$ {CalculaCaixa()}</p>
+                <CalculaCaixa />
             </CaixaAtual>
         </HeaderContainer>
     );

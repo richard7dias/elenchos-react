@@ -4,7 +4,7 @@ import { getCategorias } from '../../services/categorias';
 import EditarCategoria from '../EditarCategoria';
 import CalculaGasto from '../CalculaGastoDisponivel/CalculaGasto';
 import CalculaDisponivel from '../CalculaGastoDisponivel/CalculaDisponivel';
-import SomaTotais from './somaTotais';
+import SomaTotais from './SomaTotais';
 
 
 const ContainerTabela = styled.div`
@@ -57,6 +57,16 @@ const Dinheiro = styled.td`
     text-align: end;
 `
 
+const DinheiroGasto = styled.td`
+    text-align: end;
+    color: #903B33;
+`
+
+const DinheiroDisponivel = styled.td`
+    text-align: end;
+    color: #387876;
+`
+
 function TabelaCategorias() {
     const [categorias, setCategorias] = useState([]);
 
@@ -93,8 +103,8 @@ function TabelaCategorias() {
                                 {categoria.nome}
                             </NomeCategoria>
                             <Dinheiro>{categoria.orcamento}</Dinheiro>
-                            <Dinheiro>{categoria.gasto}</Dinheiro>
-                            <Dinheiro>{categoria.disponivel}</Dinheiro>
+                            <DinheiroGasto>{categoria.gasto}</DinheiroGasto>
+                            <DinheiroDisponivel>{categoria.disponivel}</DinheiroDisponivel>
                         </LinhaDados>
                     ))
                 }

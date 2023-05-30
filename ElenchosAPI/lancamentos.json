@@ -68,5 +68,26 @@
         "descricao": "teste ",
         "categoria": "Mercado",
         "valor": 100
+    },
+    {
+        "id": "13",
+        "data": "2023-05-31",
+        "descricao": "Almoço",
+        "categoria": "Restaurante",
+        "valor": 110
+    },
+    {
+        "id": "14",
+        "data": "2023-05-16",
+        "descricao": "Tapete",
+        "categoria": "Casa",
+        "valor": 50
+    },
+    {
+        "id": "15",
+        "data": "2023-05-30",
+        "descricao": "Teste",
+        "categoria": "Teste",
+        "valor": 100
     }
 ]

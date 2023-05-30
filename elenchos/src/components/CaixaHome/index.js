@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import TituloSecundario from '../TituloSecundario';
-import CalculaCaixa from './CalculaCaixa';
+import CalculaCaixa from '../CalculaCaixa';
 
 const CaixaAtual = styled.div`
     display: flex;
@@ -22,7 +22,7 @@ function CaixaHome() {
         <div>
             <TituloSecundario>CAIXA ATUAL</TituloSecundario>
             <CaixaAtual>
-                <p>R$ {CalculaCaixa()}</p>
+                <CalculaCaixa />
             </CaixaAtual>
         </div>
     );

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getFonteGastos } from '../../services/fonteGastos';
+import SomaTotais from '../TabelaCategorias/SomaTotais';
 
 function SomaFonteGastos() {
     const [fonteGastos, setFonteGastos] = useState([]);
@@ -17,7 +18,7 @@ function SomaFonteGastos() {
     fonteGastos.map(fonteGasto => (
         somaTotalFonteGastos += fonteGasto.valorGasto
     ));
-    return somaTotalFonteGastos;
+    return somaTotalFonteGastos + SomaTotais("disponivel");
 }
 
 export default SomaFonteGastos;

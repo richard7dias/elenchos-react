@@ -82,7 +82,7 @@ function TabelaLancamentos() {
     }
 
     useEffect(() => {
-        fetchLancamentos()
+        fetchLancamentos();
     }, []);
 
     const filtrados = lancamentos
@@ -90,6 +90,14 @@ function TabelaLancamentos() {
             lancamento.data.substring(0, 4) == anoAtual.toString()
             && lancamento.data.substring(5, 7) == mesAtual
         );
+
+    let ordenadosData = [];
+    for (let i = 1; i <= 31; i++) {
+        let filtro = filtrados.filter(lancamento => lancamento.data.substring(8, 10) == i);
+        if (filtro.length != 0) {
+            ordenadosData.push(...filtro);
+        }
+    }
 
     return (
         <div>
@@ -103,7 +111,7 @@ function TabelaLancamentos() {
                     <ColValor>Valor (R$)</ColValor>
                 </LinhaHeader>
                 {
-                    filtrados.map(lancamento => (
+                    ordenadosData.map(lancamento => (
                         < Linha >
                             <ContainerEditar>
                                 <EditarLancamento lancamento={lancamento} />

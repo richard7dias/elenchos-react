@@ -6,6 +6,7 @@ import EditarConta from '../EditarConta';
 
 const Tabela = styled.table`
     margin: auto;
+    margin-top: 0;
     border-collapse: collapse;
     border: 1px solid white;
     font-size: 0.8rem;
